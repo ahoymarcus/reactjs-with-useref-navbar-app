@@ -18,10 +18,33 @@ const Navbar = () => {
         </button>
       </div>
       <div className="links-container show-container">
-
+        <ul className="links">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>  
+          </li>
+          <li> 
+            <a href="#">Products</a>
+          </li>
+        </ul>
       </div>
-      <ul calssName="social-icons">
-
+      <ul className="social-icons">
+        <li>
+          <a href="https://www.twitter.com">
+            <FaTwitter />
+          </a>
+        </li>
+        <li>
+          <a href="https://"></a>
+        </li>
+        <li>
+          <a href="https://"></a>
+        </li>
       </ul>
     </div>
   );
