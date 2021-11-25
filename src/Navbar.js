@@ -8,7 +8,23 @@ import logo from './logo.svg'
 
 const Navbar = () => {
   const [ showLinks, setShowLinks ] = useState(false);
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
 
+
+  /* 
+    Nesta 3ª solução, não definiremos o valor de altura do componente por meio de classe CSS, mas sim o método de vanilla JS getBoundingClientRect() ............
+  */
+  useEffect(() => {
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
+    console.log(linksHeight);
+
+    if (showLinks) {
+      linksContainerRef.current.style.height = `${linksHeight}px`;
+    } else {
+      linksContainerRef.current.style.height = '0px';
+    }
+  }, [showLinks]);
 
 
   return (
@@ -23,8 +39,14 @@ const Navbar = () => {
         </button>
       </div>
      
-      <div className={`${showLinks ? 'show-container links-container' : 'links-container'} `}>
-        <ul className="links">
+      <div 
+        className="links-container" 
+        ref={linksContainerRef}
+      >
+        <ul 
+          className="links"
+          ref={linksRef}
+        >
           {
             links.map((link) => {
               const { id, url, text } = link;
